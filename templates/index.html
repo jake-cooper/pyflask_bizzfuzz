@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% for n in range(1,101) %}
+		{% if n % 3 == 0 and n % 5 == 0 %}
+			<tr class="text-success success">
+				<th class="active" scope="row"><p class="h4 text-center">{{ n }}</p></th>
+				<td><p class="h4"><span class="glyphicon glyphicon-ok"></span></p></td>
+				<td><p class="h4"><span class="glyphicon glyphicon-ok"></span></p></td>
+			</tr>
+		{% elif n % 3 != 0 or n % 5 != 0 %}
+			<tr><th class="active" scope="row"><p class="h4 text-center">{{ n }}</p></th>
+			{% if n % 3 == 0 and n % 5 != 0 %}
+				<td><p class="h4"><span class="glyphicon glyphicon-ok"></span></p></td>
+				<td>&nbsp;</td>
+			{% elif n % 3 != 0 and n % 5 == 0 %}
+				<td>&nbsp;</td>
+				<td><p class="h4"><span class="glyphicon glyphicon-ok"></span></p></td>
+			{% else %}
+	  	        		<td>&nbsp;</td>
+		        		<td>&nbsp;</td>
+			{% endif %}
+			</tr>
+		{% else %}
+			<tr>
+				<th class="active" scope="row"><p class="h4 text-center">{{ n }}</p></th>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
